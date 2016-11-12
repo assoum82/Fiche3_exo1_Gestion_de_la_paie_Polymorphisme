@@ -4,25 +4,21 @@ public class Main {
 
     public static void main(String[] args)
     {
-        //Polymorphisme
-        Employe A = new Employe("Andelo","PDG");
-        A.setSalaire(50000.0);
+        //Un tableau de tous les employé de dimension 3
+        Employe[] empl = {new Employe("Andelo","PDG"),
+                new EmployepleinTemps("Salim","Agent",10.00, 70.0),
+                new EmployeTempsPartiel("Omar","Assistant", 35, 5.0)};
 
-        Employe B = new EmployepleinTemps("Salim","Agent",100.00, 50.0);
+        System.out.println("Les fiches des paies selon les fonctions et grades ");
+        System.out.println("==================================================");
 
-        Employe C = new EmployeTempsPartiel("Omar","Journalier", 35, 35.0);
-
-        System.out.println("Les fiches des paies selon les grades ");
-        System.out.println("=====================================");
-        A.Calculsalaire();
-        A.Affichepaie();
-
-        System.out.println("======================================");
-        B.Calculsalaire();
-        B.Affichepaie();
-
-        System.out.println("======================================");
-        C.Calculsalaire();
-        C.Affichepaie();
+        //Un boucle qui calcul les salaires des tous les employés et les affiches
+        for (Employe e: empl)      //foreach
+        {
+            e.setSalaire(5000.00);              //définition du salaire du PDG
+            e.Calculsalaire();
+            e.Affichepaie();
+            System.out.println("==================================================");
+        }
     }
 }
